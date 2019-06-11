@@ -33,7 +33,7 @@ public class ClienteMapeamento extends PessoaMapeamento implements Serializable 
     private PlanoMapeamento planoMapeamento;
     
     @Column(nullable = false)
-    private int diaVencimento;
+    private int vencimento;
 
     public PlanoMapeamento getPlanoMapeamento() {
         return planoMapeamento;
@@ -43,12 +43,12 @@ public class ClienteMapeamento extends PessoaMapeamento implements Serializable 
         this.planoMapeamento = planoMapeamento;
     }
 
-    public int getDiaVencimento() {
-        return diaVencimento;
+    public int getVencimento() {
+        return vencimento;
     }
 
-    public void setDiaVencimento(int diaVencimento) {
-        this.diaVencimento = diaVencimento;
+    public void setVencimento(int vencimento) {
+        this.vencimento = vencimento;
     }
 
 }

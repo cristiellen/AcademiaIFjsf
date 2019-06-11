@@ -13,6 +13,10 @@
             <from-outcome>home</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>cadastroCliente</from-outcome>
+            <to-view-id>/cliente/CadastroCliente.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/plano/CadastroPlano.xhtml</from-view-id>
@@ -23,6 +27,25 @@
         <navigation-case>
             <from-outcome>home</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cadastroCliente</from-outcome>
+            <to-view-id>/cliente/CadastroCliente.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/cliente/CadastroCliente.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cadastroPlano</from-outcome>
+            <to-view-id>/plano/CadastroPlano.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cadastroCliente</from-outcome>
+            <to-view-id>/cliente/CadastroCliente.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
