@@ -5,30 +5,38 @@
  */
 package br.com.acabemiaif.controller;
 
+import br.com.academiaif.mapeamento.outros.PlanoMapeamento;
 import br.com.academiaif.mapeamento.pessoa.ClienteMapeamento;
 import br.com.academiaif.repository.ClienteRepository;
+import br.com.academiaif.repository.PlanoRepository;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-
 
 @ManagedBean
 
 public class ClienteController {
+
     private ClienteMapeamento clienteMapeamento;
     private ClienteRepository clienteRepository;
     private List<ClienteMapeamento> listaDeClientes;
-    
-    public ClienteController(){
+    private List<PlanoMapeamento> listaDePlanos;
+    private PlanoRepository planoRepo;
+
+    public ClienteController() {
         this.clienteMapeamento = new ClienteMapeamento();
         this.clienteRepository = new ClienteRepository();
-        //this.listaDePlanos = new ArrayList<>();
+        this.planoRepo = new PlanoRepository();
+        this.listaDePlanos = planoRepo.buscarTodos();
+        
     }
-    
-    public void salvar(){
+
+    public void salvar() {
+        PlanoMapeamento plano = this.clienteRepository.buscarPorId(clienteMapeamento.getIdPlano());
+        this.clienteMapeamento.setPlanoMapeamento(plano);
         this.clienteRepository.salvar(clienteMapeamento);
     }
-    
-    public void buscarTodos(){
+
+    public void buscarTodos() {
         this.listaDeClientes = this.clienteRepository.buscarTodos();
     }
 
@@ -55,6 +63,22 @@ public class ClienteController {
     public void setListaDeClientes(List<ClienteMapeamento> listaDeClientes) {
         this.listaDeClientes = listaDeClientes;
     }
-    
+
+    public List<PlanoMapeamento> getListaDePlanos() {
+        return listaDePlanos;
+    }
+
+    public void setListaDePlanos(List<PlanoMapeamento> listaDePlanos) {
+        this.listaDePlanos = listaDePlanos;
+    }
+
+    public PlanoRepository getPlanoRepo() {
+        return planoRepo;
+    }
+
+    public void setPlanoRepo(PlanoRepository planoRepo) {
+        this.planoRepo = planoRepo;
+    }
+
     
 }

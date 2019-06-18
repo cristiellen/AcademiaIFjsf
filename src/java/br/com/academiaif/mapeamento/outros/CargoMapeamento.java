@@ -5,7 +5,6 @@
  */
 package br.com.academiaif.mapeamento.outros;
 
-import br.com.academiaif.mapeamento.pessoa.ClienteMapeamento;
 import br.com.academiaif.mapeamento.pessoa.FuncionarioMapeamento;
 import java.io.Serializable;
 import java.util.List;

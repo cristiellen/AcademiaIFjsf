@@ -20,4 +20,14 @@ public class ClienteRepository extends Conexao{
         Fechar();
         return listaDeClientes;
     }
+    public PlanoMapeamento buscarPorId(Long id)
+    {
+        Conectar();
+        PlanoMapeamento planoMapeamento = (PlanoMapeamento) getSession()
+                .createQuery("from PlanoMapeamento where id= :idPlano")
+                .setParameter("idPlano", id)
+                .setMaxResults(1).uniqueResult();
+        Fechar();
+        return planoMapeamento;
+    }
 }

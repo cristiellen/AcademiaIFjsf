@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:define name="corpo">
+        <div>
+            <h2>Busca de Clientes</h2>
+            <table class="table" onload="#{clienteController.buscarTodos()}">
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Idade</th>
+                    <th>Dia de vencimento</th>
+                   
+                </tr>
+                <ui:repeat value="#{clienteController.listaDeClientes}" var="cliente">
+                    <tr>
+                       <!-- <td>${cliente.idPlano}</td>-->
+                        <td>${cliente.nome}</td>
+                        <td>${cliente.cpf}</td>
+                        <td>${cliente.idade}</td>
+                        <td>${cliente.vencimento}</td>
+                        <td><h:commandButton class="btn btn-danger" value="Excluir" action="#{ClienteController.salvar()}"/></td>
+                    </tr>
+                </ui:repeat>
+            </table>
+        </div>
+    </ui:define>
+</ui:composition>
