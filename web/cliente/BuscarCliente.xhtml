@@ -9,6 +9,7 @@
             <h2>Busca de Clientes</h2>
             <table class="table" onload="#{clienteController.buscarTodos()}">
                 <tr>
+                    <th>Plano</th>
                     <th>Nome</th>
                     <th>CPF</th>
                     <th>Idade</th>
@@ -17,7 +18,7 @@
                 </tr>
                 <ui:repeat value="#{clienteController.listaDeClientes}" var="cliente">
                     <tr>
-                       <!-- <td>${cliente.idPlano}</td>-->
+                       <td>${cliente.idPlano}</td>
                         <td>${cliente.nome}</td>
                         <td>${cliente.cpf}</td>
                         <td>${cliente.idade}</td>
