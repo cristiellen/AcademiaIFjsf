@@ -1,32 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="/template/template.xhtml"
-                xmlns:h="http://xmlns.jcp.org/jsf/html">
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:define name="corpo">
         <div>
             <h2>Busca de Clientes</h2>
-            <table class="table" onload="#{clienteController.buscarTodos()}">
-                <tr>
-                    <th>Plano</th>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>Idade</th>
-                    <th>Dia de vencimento</th>
-                   
-                </tr>
-                <ui:repeat value="#{clienteController.listaDeClientes}" var="cliente">
+            <h:form>
+                <table class="table" onload="#{clienteController.buscarTodos()}">
                     <tr>
-                       <td>${cliente.idPlano}</td>
-                        <td>${cliente.nome}</td>
-                        <td>${cliente.cpf}</td>
-                        <td>${cliente.idade}</td>
-                        <td>${cliente.vencimento}</td>
-                        <td><h:commandButton class="btn btn-danger" value="Excluir" action="#{ClienteController.salvar()}"/></td>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Cpf</th>
+                        <th>Vencimento</th>
+                        <th>Plano</th>
+                        <th>Ações</th>
                     </tr>
-                </ui:repeat>
-            </table>
+                    <ui:repeat value="#{clienteController.listaDeClientes}" var="cliente">
+                        <tr>
+                            <td>${cliente.idPessoa}</td>
+                            <td>${cliente.nome}</td>
+                            <td>${cliente.idade}</td>
+                            <td>${cliente.cpf}</td>
+                            <td>${cliente.vencimento}</td>
+                            <td>${cliente.planoMapeamento.nome}</td>
+                            <td>
+                                <h:commandButton class="btn btn-primary" value="Editar" action="#{clienteController.editar(cliente)}"/>
+                                <h:commandButton class="btn btn-danger" value="Excluir" action="#{clienteController.excluir(cliente)}"/>
+                            </td>
+                           
+                        </tr>
+                    </ui:repeat>
+                </table>
+            </h:form>
         </div>
     </ui:define>
 </ui:composition>

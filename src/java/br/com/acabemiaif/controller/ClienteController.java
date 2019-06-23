@@ -11,12 +11,15 @@ import br.com.academiaif.repository.ClienteRepository;
 import br.com.academiaif.repository.PlanoRepository;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
+@ViewScoped
 @ManagedBean
 
 public class ClienteController {
 
     private ClienteMapeamento clienteMapeamento;
+    private PlanoMapeamento planoMapeamento;
     private ClienteRepository clienteRepository;
     private List<ClienteMapeamento> listaDeClientes;
     private List<PlanoMapeamento> listaDePlanos;
@@ -24,10 +27,11 @@ public class ClienteController {
 
     public ClienteController() {
         this.clienteMapeamento = new ClienteMapeamento();
+        this.planoMapeamento = new PlanoMapeamento();
         this.clienteRepository = new ClienteRepository();
         this.planoRepo = new PlanoRepository();
         this.listaDePlanos = planoRepo.buscarTodos();
-        
+
     }
 
     public void salvar() {
@@ -36,8 +40,26 @@ public class ClienteController {
         this.clienteRepository.salvar(clienteMapeamento);
     }
 
+    public void excluir(ClienteMapeamento cliente) {
+        this.clienteRepository.excluir(cliente);
+    }
+
+    public String atualizar(){
+        this.planoMapeamento= this.planoRepo.buscarPorId(clienteMapeamento.getIdPlano());
+        this.clienteMapeamento.setPlanoMapeamento(planoMapeamento);
+        this.clienteRepository.atualizar(clienteMapeamento);
+        return "/cliente/BuscarCliente.xhtml";
+    }
+    
+
     public void buscarTodos() {
         this.listaDeClientes = this.clienteRepository.buscarTodos();
+    }
+
+    public String editar(ClienteMapeamento cliente) {
+        this.clienteMapeamento = cliente;
+        return "/cliente/EditarCliente.xhtml";
+
     }
 
     public ClienteMapeamento getClienteMapeamento() {
@@ -80,5 +102,4 @@ public class ClienteController {
         this.planoRepo = planoRepo;
     }
 
-    
 }

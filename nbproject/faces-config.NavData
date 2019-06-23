@@ -2,11 +2,19 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="template/template.xhtml" x="150" y="150" zoom="true"/>
-        <Node id="cliente/CadastroCliente.xhtml" x="150" y="300" zoom="true"/>
-        <Node id="plano/CadastroPlano.xhtml" x="287" y="35" zoom="true"/>
+        <Node id="C:/Users/Cristiellen Alves/Documents (3143)/NetBeansProjects/AcademiaIFjsf/web/cliente/CadastroCliente.xhtml" x="300" y="437" zoom="true"/>
         <Node id="index.xhtml" x="11" y="20" zoom="true"/>
-        <Node id="plano/BuscarPlano.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="C:/Users/Cristiellen Alves/Documents (3143)/NetBeansProjects/AcademiaIFjsf/web/index.xhtml" x="406" y="472" zoom="true"/>
+        <Node id="cliente/EditarCliente.xhtml" x="771" y="333" zoom="true"/>
+        <Node id="plano/BuscarPlano.xhtml" x="567" y="44" zoom="true"/>
+        <Node id="C:/Users/Cristiellen Alves/Documents (3143)/NetBeansProjects/AcademiaIFjsf/web/cliente/EditarCliente.xhtml" x="358" y="401" zoom="true"/>
+        <Node id="C:/Users/Cristiellen Alves/Documents (3143)/NetBeansProjects/AcademiaIFjsf/web/plano/BuscarPlano.xhtml" x="411" y="443" zoom="true"/>
+        <Node id="cliente/CadastroCliente.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="C:/Users/Cristiellen Alves/Documents (3143)/NetBeansProjects/AcademiaIFjsf/web/cliente/BuscarCliente.xhtml" x="375" y="435" zoom="true"/>
+        <Node id="C:/Users/Cristiellen Alves/Documents (3143)/NetBeansProjects/AcademiaIFjsf/web/template/template.xhtml" x="267" y="437" zoom="true"/>
+        <Node id="C:/Users/Cristiellen Alves/Documents (3143)/NetBeansProjects/AcademiaIFjsf/web/plano/CadastroPlano.xhtml" x="297" y="449" zoom="true"/>
+        <Node id="plano/CadastroPlano.xhtml" x="287" y="35" zoom="true"/>
+        <Node id="cliente/BuscarCliente.xhtml" x="850" y="154" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

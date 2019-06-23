@@ -4,31 +4,39 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="/template/template.xhtml"
-                xmlns:h="http://xmlns.jcp.org/jsf/html">
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:define name="corpo">
         <div>
             <h2>Busca de Planos</h2>
-            <table class="table" onload="#{planoController.buscarTodos()}">
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Valor</th>
-                    <th>Descrição</th>
-                    <th>Ação</th>
-                </tr>
-                <ui:repeat value="#{planoController.listaDePlanos}" var="plano">
+            <h:form>
+                <table class="table" onload="#{planoController.buscarTodos()}">
                     <tr>
-                        <td>${plano.idPlano}</td>
-                        <td>${plano.nome}</td>
-                        <td>${plano.valor}</td>
-                        <td>${plano.descricao}</td>
-                        <td><h:commandButton class="btn btn-danger" value="Excluir" action="#{planoController.salvar()}"/></td>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                        <th>Descrição</th>
+                        <th>Ação</th>
                     </tr>
-                </ui:repeat>
-            </table>
+                    <ui:repeat value="#{planoController.listaDePlanos}" var="plano">
+                        <tr>
+                            <td>${plano.idPlano}</td>
+                            <td>${plano.nome}</td>
+                            <td>${plano.valor}</td>
+                            <td>${plano.descricao}</td>
+                            <td>
+                                <h:commandButton class="btn btn-primary" value="Editar" action="#{planoController.editar(plano)}"/>
+                                <h:commandButton class="btn btn-danger" value="Excluir" action="#{planoController.excluir(plano)}"/>
+                            </td>
+                           
+                        </tr>
+                    </ui:repeat>
+                </table>
+            </h:form>
         </div>
     </ui:define>
 </ui:composition>

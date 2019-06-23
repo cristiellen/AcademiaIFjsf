@@ -10,8 +10,9 @@ import br.com.academiaif.repository.PlanoRepository;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
-
+@SessionScoped
 @ManagedBean
 public class PlanoController {
     private PlanoMapeamento planoMapeamento;
@@ -26,6 +27,9 @@ public class PlanoController {
     
     public void salvar(){
         this.planoRepository.salvar(planoMapeamento);
+    }
+    public void excluir(PlanoMapeamento planoMapeamento){
+        this.planoRepository.excluir(planoMapeamento);
     }
     
     public void buscarTodos(){

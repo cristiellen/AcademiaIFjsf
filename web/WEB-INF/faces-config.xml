@@ -117,5 +117,20 @@
             <from-outcome>cadastroPlano</from-outcome>
             <to-view-id>/plano/CadastroPlano.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>editarCliente</from-outcome>
+            <to-view-id>/cliente/EditarCliente.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/cliente/EditarCliente.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>buscarCliente</from-outcome>
+            <to-view-id>/cliente/BuscarCliente.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editarCliente</from-outcome>
+            <to-view-id>/cliente/EditarCliente.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 </faces-config>

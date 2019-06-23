@@ -9,6 +9,7 @@
         <div>
             <h2>Cadastro de Cliente</h2>
             <h:form>
+                
                 <div class="form-group">
                     <label for="cpf">nome</label>
                     <h:inputText id="nome" class="form-control" value="#{clienteController.clienteMapeamento.nome}" />
@@ -35,9 +36,8 @@
                 </h:selectOneMenu>
                                  
                  
-                <h:commandButton class="btn btn-primary" value="Salvar" action="#{clienteController.salvar()}"/>
-                                  
+                <h:commandButton class="btn btn-primary" value="Atualizar" action="#{clienteController.atualizar()}"/>
             </h:form>
-        </div>s
+        </div>
     </ui:define>
 </ui:composition>

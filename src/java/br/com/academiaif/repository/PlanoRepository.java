@@ -7,32 +7,51 @@ package br.com.academiaif.repository;
 
 import br.com.academiaif.mapeamento.outros.PlanoMapeamento;
 import br.com.academiaif.dao.Conexao;
+import br.com.academiaif.mapeamento.pessoa.ClienteMapeamento;
 import java.util.List;
 
 /**
  *
  * @author Frank
  */
-public class PlanoRepository extends Conexao{
-    
-    public void salvar(PlanoMapeamento plano){
+public class PlanoRepository extends Conexao {
+
+    public void salvar(PlanoMapeamento plano) {
         Conectar();
         getSession().save(plano);
         Fechar();
     }
-    
-    public List<PlanoMapeamento> buscarTodos(){
+
+    public List<PlanoMapeamento> buscarTodos() {
         List<PlanoMapeamento> listaDePlanos;
         Conectar();
         listaDePlanos = getSession().createQuery("from PlanoMapeamento").list();
         Fechar();
         return listaDePlanos;
     }
-      public List<PlanoMapeamento> buscarPorId(PlanoMapeamento planoId){
-        List<PlanoMapeamento> listaDePlanos;
+
+    public PlanoMapeamento buscarPorId(long id) {
+        PlanoMapeamento plano;
+        List<PlanoMapeamento> list;
         Conectar();
-        listaDePlanos = getSession().createQuery("from PlanoMapeamento").list();
+        list = getSession().createQuery("from PlanoMapeamento WHERE id = " + id).list();
+        plano = list.get(0);
         Fechar();
-        return listaDePlanos;
+        return plano;
+    }
+
+    public void excluir(PlanoMapeamento plano) {
+        Conectar();
+
+        PlanoMapeamento parent = (PlanoMapeamento) getSession().get(PlanoMapeamento.class, plano.getIdPlano());
+        List<ClienteMapeamento> lista = parent.getListaDeClientes();
+        for (ClienteMapeamento lista1 : lista) {
+            System.out.println("------");
+            lista1.setPlanoMapeamento(null);
+        }
+
+        parent.setListaDeClientes(lista);
+        getSession().delete(parent);
+        Fechar();
     }
 }
